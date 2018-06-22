@@ -1,4 +1,3 @@
 package com.slopestyle.coderswag.Utilities
 
-class Constants {
-}
+const val EXTRA_CATEGORY = "category"
