@@ -1,6 +1,10 @@
 # CoderSwag
 App displaying Swag for Coder utilizing RecyclerView, ListView and Kotlin Lamda functions
 
+I have taken the CoderSwag-App from the project CoderSwag in the very good Android-Kotlin course on
+Udemy by JonnyB from Devslopes.com 
+https://www.udemy.com/devslopes-android-kotlin
+
 This screenshot shows both the tablet and the phone view.
 Notice that the tablet has one more column than the phone.
 
