@@ -10,6 +10,9 @@ import com.slopestyle.coderswag.R
 import com.slopestyle.coderswag.Service.DataService
 import com.slopestyle.coderswag.Utilities.EXTRA_CATEGORY
 import kotlinx.android.synthetic.main.activity_main.*
+import android.os.StrictMode
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         adapter = CategoryRecycleAdapter(this, DataService.categories) {
-            category -> //println(category.title)
+            category ->
             val productsActivity = Intent(this, ProductsActivity::class.java)
             productsActivity.putExtra(EXTRA_CATEGORY, category.title)
             startActivity(productsActivity)
