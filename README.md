@@ -7,7 +7,7 @@ https://www.udemy.com/devslopes-android-kotlin
 
 The app starts with the Category screen in which five categories of coder swag are shown.
 
-![coderswag-categoriesscreen](https://user-images.githubusercontent.com/9823247/42151090-134f7746-7ddc-11e8-92a6-73f4ec64287d.jpg)
+![coderswag-categoriesscreen](https://user-images.githubusercontent.com/9823247/42180338-279a414e-7e37-11e8-83fb-67cec70e6073.jpg)
 
 Clicking on a category invokes an Intent which brings app into the Product screen.
 
