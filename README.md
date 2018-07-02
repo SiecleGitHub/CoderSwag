@@ -1,4 +1,4 @@
-# CoderSwag
+# CoderSwag - Android App written in Kotlin
 App displaying Swag for Coder utilizing RecyclerView, ListView and Kotlin Lamda functions
 
 I have taken the CoderSwag-App from the project CoderSwag in the very good Android-Kotlin course on
