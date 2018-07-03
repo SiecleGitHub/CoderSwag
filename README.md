@@ -18,7 +18,7 @@ Notice that the tablet has one more column than the phone.
 
 The following screenshot depicts the product in detail
 
-![screenshot_1530649515](https://user-images.githubusercontent.com/9823247/42243234-ee221baa-7f10-11e8-8d8f-a2d079476421.png)
+![screenshot_1530649515](https://user-images.githubusercontent.com/9823247/42243313-3264b17e-7f11-11e8-942f-a034c897acd0.png)
 
 I will add some Unit tests to the project. For testing the recycler view and the adapter I will
 use the know how given by this article
