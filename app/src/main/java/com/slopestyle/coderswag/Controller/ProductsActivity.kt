@@ -24,7 +24,12 @@ class ProductsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_products)
 
         val categoryType = intent.getStringExtra(EXTRA_CATEGORY)
-        adapter = ProductsAdapter(this, DataService.getProducts(categoryType))
+        adapter = ProductsAdapter(this, DataService.getProducts(categoryType)) {
+            product ->
+            val productDetailActivity = Intent(this, ProductDetailActivity::class.java)
+            productDetailActivity.putExtra(EXTRA_PRODUCT, product)
+            startActivity(productDetailActivity)
+        }
 
         var spanCount = 2
         val orientation = resources.configuration.orientation
@@ -40,11 +45,5 @@ class ProductsActivity : AppCompatActivity() {
         val layoutManager = GridLayoutManager(this, spanCount)
         productsListView.layoutManager = layoutManager
         productsListView.adapter = adapter
-    }
-
-    fun productClicked(view: View) {
-        val productDetailActivity = Intent(this, ProductDetailActivity::class.java)
-        productDetailActivity.putExtra(EXTRA_PRODUCT, product)
-        startActivity(productDetailActivity)
     }
 }

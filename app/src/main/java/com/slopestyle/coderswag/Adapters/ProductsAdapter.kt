@@ -9,13 +9,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.slopestyle.coderswag.Model.Product
 import com.slopestyle.coderswag.R
-import kotlinx.android.synthetic.main.product_list_item.*
 
 
-class ProductsAdapter(val context: Context, val products: List<Product>) : RecyclerView.Adapter<ProductsAdapter.ProductHolder>(){
+class ProductsAdapter(val context: Context, val products: List<Product>, val itemClick: (Product) -> Unit) : RecyclerView.Adapter<ProductsAdapter.ProductHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.product_list_item, parent, false)
-        return ProductHolder(view)
+        return ProductHolder(view, itemClick)
     }
 
     override fun getItemCount(): Int {
@@ -23,19 +22,20 @@ class ProductsAdapter(val context: Context, val products: List<Product>) : Recyc
     }
 
     override fun onBindViewHolder(holder: ProductHolder, position: Int) {
-        holder?.bindProduct(products[position], context)
+        holder.bindProduct(products[position], context)
     }
 
-    inner class ProductHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
-        val productImage = itemView?.findViewById<ImageView>(R.id.productImage)
-        val productName = itemView?.findViewById<TextView>(R.id.productName)
-        val productPrice = itemView?.findViewById<TextView>(R.id.productPrice)
+    inner class ProductHolder(itemView: View?, val itemClick: (Product) -> Unit) : RecyclerView.ViewHolder(itemView) {
+        val productImage = itemView?.findViewById<ImageView>(R.id.detailImageView)
+        val productName = itemView?.findViewById<TextView>(R.id.detailProductName)
+        val productPrice = itemView?.findViewById<TextView>(R.id.detailProductPrice)
 
         fun bindProduct(product: Product, context: Context) {
             val resourceId = context.resources.getIdentifier(product.image, "drawable", context.packageName)
             productImage?.setImageResource(resourceId)
             productName?.text = product.title
             productPrice?.text = product.price
+            itemView.setOnClickListener { itemClick(product) }
         }
     }
 }
