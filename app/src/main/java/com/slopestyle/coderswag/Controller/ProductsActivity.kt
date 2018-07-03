@@ -1,18 +1,23 @@
 package com.slopestyle.coderswag.Controller
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
+import android.view.View
 import com.slopestyle.coderswag.Adapters.ProductsAdapter
+import com.slopestyle.coderswag.Model.Product
 import com.slopestyle.coderswag.R
 import com.slopestyle.coderswag.Service.DataService
 import com.slopestyle.coderswag.Utilities.EXTRA_CATEGORY
+import com.slopestyle.coderswag.Utilities.EXTRA_PRODUCT
 import kotlinx.android.synthetic.main.activity_products.*
 
 class ProductsActivity : AppCompatActivity() {
 
     lateinit var adapter: ProductsAdapter
+    var product = Product("Clemens Hoodie", "$10 ", "")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,5 +40,11 @@ class ProductsActivity : AppCompatActivity() {
         val layoutManager = GridLayoutManager(this, spanCount)
         productsListView.layoutManager = layoutManager
         productsListView.adapter = adapter
+    }
+
+    fun productClicked(view: View) {
+        val productDetailActivity = Intent(this, ProductDetailActivity::class.java)
+        productDetailActivity.putExtra(EXTRA_PRODUCT, product)
+        startActivity(productDetailActivity)
     }
 }
